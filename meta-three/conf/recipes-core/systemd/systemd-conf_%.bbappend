@@ -2,6 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI:append:examplemachine = " \
     ${@bb.utils.contains('MACHINE_FEATURES', 'wifi', 'file://wlan0.network', '', d)} \
+    https://raw.githubusercontent.com/RobertCNelson/netifd/master/systemd/network/wlan0.network;destsuffix=systemd/network \
 "
 
 do_install:append:examplemachine() {
